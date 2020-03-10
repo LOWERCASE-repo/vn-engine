@@ -1,6 +1,5 @@
 import java.io.FileInputStream;
 // import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class Script {
   
@@ -27,7 +26,7 @@ public class Script {
   
   private void loadScene(String name) {
     try { input = new FileInputStream("Scripts/" + name); }
-    catch (IOException e) {
+    catch (Exception exc) {
       e.printStackTrace();
       System.exit(1);
     }
