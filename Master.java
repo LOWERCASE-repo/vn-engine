@@ -3,6 +3,9 @@
 public class Master {
   
   public static void main(String[] args) {
-    System.out.println("hewwo");
+    // Renderer renderer = new Renderer();
+    // renderer.init();
+    Script script = new Script();
+    script.init();
   }
 }
