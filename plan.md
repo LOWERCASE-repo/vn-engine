@@ -1,41 +1,63 @@
-# requirements
-- page flipping
- - ugh gui
- - ugh images
-- save and load
-- text scroll
- - ez recursion
-- sprites
-- transitions
- - fade from black
-
 # functionality
 
 ###### storing dialogue trees
-- oh god oh fuck
+- dev bottleneck!
 - serialize a directed graph
 - functions needed
- - text and effects
- - player choices
- - background changes
- - x will remember this
+  - text and effects
+  - player choices
+  - background changes
+  - x will remember this
 - possibilities
- - yaml parser
- - script with gotos
-   - tempting but not extensible
- - node forest
+  - yaml json or xml parser
+  - script with gotos
+    - tempting but not extensible
+  - node forest
+    - easy to burn out
+
+###### game components
+- background image
+- dialogue box
+- dialogue sprite
+- choices buttons
+- save and load buttons
 
 # classes
 
+###### Init.java
+- public static void pain
+- calls literally everything
+
 ###### Renderer.java
-- gui jank containment chamber
+- gui containment chamber
+- jframe with background image
+  - not resizable because of image jank
+
+###### SaveMaster.java
+- file io containment chamber
+- GameState serialization
 
 ###### GameState.java
-- file io containment chamber
 - x will remember this
+- current image, text, etc
 
 ###### Clock.java
-- max out fps
+- unlimited fps
+- text scroll speed
+  - constantly try to append characters
 
 ###### Input.java
+- listener containment chamber
 - i am NOT working with jbuttons
+- arrow keys + space
+- numbers
+- s and l for save and load
+
+# extensions
+- transitions
+  - fade in and out
+  - zooms
+- encrypted save file
+- chara voices and music
+- mouse navigation
+- resizable window
