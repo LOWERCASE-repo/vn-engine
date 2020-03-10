@@ -6,6 +6,6 @@ public class Master {
     State state = new State();
     // Renderer renderer = new Renderer();
     // renderer.init();
-    Script script = new Script(state);
+    Scene scene = new Scene(state);
   }
 }

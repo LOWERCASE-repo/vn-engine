@@ -21,7 +21,7 @@ public class Clock {
         oldTime = System.currentTimeMillis();
         // blah.update(deltaTime);
       }
-      try { Thread.sleep(targDeltaTime); }
+      try { Thread.sleep(TARGET_TIME); }
       catch (Exception exc) { exc.printStackTrace(); }
     }
   }

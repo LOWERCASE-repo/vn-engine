@@ -1,12 +1,12 @@
 import java.io.FileInputStream;
 // import java.io.FileOutputStream;
 
-public class Script {
+public class Scene {
   
   private FileInputStream input;
   private State state;
   
-  public Script(State state) {
+  public Scene(State state) {
     this.state = state;
     init();
   }
@@ -25,9 +25,9 @@ public class Script {
   }
   
   private void loadScene(String name) {
-    try { input = new FileInputStream("Scripts/" + name); }
+    try { input = new FileInputStream("Scenes/" + name); }
     catch (Exception exc) {
-      e.printStackTrace();
+      exc.printStackTrace();
       System.exit(1);
     }
   }
@@ -36,7 +36,7 @@ public class Script {
     int c;
     String str = "";
     try { while ((c = input.read()) != stop) str += (char)c; }
-    catch (IOException e) { e.printStackTrace(); }
+    catch (Exception exc) { exc.printStackTrace(); }
     return str.trim();
   }
 }
