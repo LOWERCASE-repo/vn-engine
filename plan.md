@@ -1,8 +1,15 @@
 # functionality
 
-###### storing dialogue trees
+###### game components
+- background image
+- dialogue box
+- dialogue sprite
+- choices buttons
+- save and load buttons
+
+###### novel script
 - dev bottleneck!
-- serialize a directed graph
+- directed graph serialization
 - functions needed
   - text and effects
   - player choices
@@ -10,17 +17,24 @@
   - x will remember this
 - possibilities
   - yaml json or xml parser
+    - kinda boomer
+    - too much typing
+    - prolly should learn it anyways
   - script with gotos
-    - tempting but not extensible
+    - peak readability
+    - not reusable
+    - high debug time cost
   - node forest
+    - customizable
     - easy to burn out
+    - rip memory
 
-###### game components
-- background image
-- dialogue box
-- dialogue sprite
-- choices buttons
-- save and load buttons
+###### implementation
+- input tells flow to flip page
+- script gives flow data
+- flow updates state
+- renderer displays state
+- clock moves renderer along
 
 # classes
 
@@ -32,12 +46,21 @@
 - gui containment chamber
 - jframe with background image
   - not resizable because of image jank
+- renders state
 
-###### SaveMaster.java
-- file io containment chamber
+###### Saver.java
 - GameState serialization
 
-###### GameState.java
+###### Script.java
+- parses serialized script
+
+###### Flow.java
+- logic containment chamber
+- parses input
+- gets data from script
+- changes state
+
+###### State.java
 - x will remember this
 - current image, text, etc
 
@@ -61,3 +84,6 @@
 - chara voices and music
 - mouse navigation
 - resizable window
+- katana zero polish
+  - time sensitive choices
+  - ALL the text effects
