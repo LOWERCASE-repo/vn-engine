@@ -4,18 +4,36 @@ import java.io.IOException;
 
 public class Script {
   
-  public void init() {
-    FileInputStream input = null;
-    try { input = new FileInputStream("dialog.lines"); }
-    catch (IOException e) { e.printStackTrace(); }
-    
-    String name = parseString(input, 44);
-    String message = parseString(input, 58);
-    String mood = parseString(input, 10);
-    System.out.println(name + "|" + mood + "|" + message);
+  private FileInputStream input;
+  private State state;
+  
+  public Script(State state) {
+    this.state = state;
+    init();
   }
   
-  private String parseString(FileInputStream input, int stop) {
+  public void init() {
+    loadScene("intro");
+    loadLine();
+    loadLine();
+  }
+  
+  public void loadLine() {
+    state.speaker = parseString(44);
+    state.mood = parseString(58);
+    state.message = parseString(10);
+    state.debug();
+  }
+  
+  private void loadScene(String name) {
+    try { input = new FileInputStream("Scripts/" + name); }
+    catch (IOException e) {
+      e.printStackTrace();
+      System.exit(1);
+    }
+  }
+  
+  private String parseString(int stop) {
     int c;
     String str = "";
     try { while ((c = input.read()) != stop) str += (char)c; }
