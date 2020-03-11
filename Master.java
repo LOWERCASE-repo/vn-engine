@@ -4,8 +4,9 @@ public class Master {
   
   public static void main(String[] args) {
     State state = new State();
+    Scene scene = new Scene(state);
     Renderer renderer = new Renderer(state);
     renderer.init();
-    Scene scene = new Scene(state);
+    Input input = new Input();
   }
 }
