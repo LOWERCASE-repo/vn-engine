@@ -3,7 +3,7 @@ public class State {
   
   public String speaker;
   public String mood;
-  public String message;
+  public String message = "";
   public String scene;
   public int scenePos;
   

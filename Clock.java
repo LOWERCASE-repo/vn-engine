@@ -20,9 +20,9 @@ public class Clock {
         deltaTime = System.currentTimeMillis() - oldTime;
         oldTime = System.currentTimeMillis();
         // blah.update(deltaTime);
+        try { Thread.sleep(TARGET_TIME); }
+        catch (Exception exc) { exc.printStackTrace(); }
       }
-      try { Thread.sleep(TARGET_TIME); }
-      catch (Exception exc) { exc.printStackTrace(); }
     }
   }
 }
