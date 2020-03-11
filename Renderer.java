@@ -1,7 +1,6 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
+import java.awt.Font;
 import javax.swing.JTextArea;
 
 public class Renderer extends JFrame {
@@ -14,27 +13,28 @@ public class Renderer extends JFrame {
   }
   
   public void init() {
-    setExtendedState(JFrame.MAXIMIZED_BOTH);
-    setResizable(true);
+    setSize(1280, 720);
+    setResizable(false);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    getContentPane().setLayout(new GridBagLayout());
     GridBagConstraints c = new GridBagConstraints();
     c.gridheight = 3;
     c.gridwidth = 3;
     
+    c.anchor = c.SOUTH;
     JTextArea dialogue = new JTextArea("infooooooooooooooooooooooooo");
-    dialogue.setEditable(true);
-    // dialogue.setFont(24);
+    dialogue.setFont(new Font("SansSerif", Font.PLAIN, 24));
+    dialogue.setEditable(false);
+    c.weightx = 1;
+    c.weighty = 1;
     c.gridx = 3;
     c.gridy = 3;
     // c.anchor = c.EAST;
-    // c.fill = c.BOTH;
+    c.fill = c.BOTH;
     add(dialogue, c);
     
     revalidate();
+    pack();
     setVisible(true);
-    // GridLayout gl = new GridLayout(1, 2);
-    // getContentPane().setLayout(gl);
   }
   
   
