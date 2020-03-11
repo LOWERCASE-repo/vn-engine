@@ -7,6 +7,6 @@ public class Master {
     Scene scene = new Scene(state);
     Renderer renderer = new Renderer(state);
     renderer.init();
-    Input input = new Input();
+    Input input = new Input(renderer, scene, state);
   }
 }

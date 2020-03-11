@@ -5,22 +5,37 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 /*
-it'd be a good idea to rewrite this class since i'm the only person
-in mangat's teaching history that does input like this
-avoids insanely high keylistener debug times :punch joy ok_hand:
+it'd be a good idea to rewrite this class since i'm the only person in
+mangat's teaching history that does input like this to
+avoid insanely high keylistener debug times :punch joy ok_hand:
 */
 public class Input {
   
   private HashSet<Integer> keys;
+  private Renderer renderer;
+  private Scene scene;
+  private State state;
   
-  public Input() {
+  public Input(Renderer renderer, Scene scene, State state) {
     keys = new HashSet<Integer>();
     AWTEventListener keysUpdater = new KeysUpdater();
     Toolkit.getDefaultToolkit().addAWTEventListener(keysUpdater, AWTEvent.KEY_EVENT_MASK);
+    this.renderer = renderer;
+    this.scene = scene;
+    this.state = state;
   }
   
   private void processInput(int input) {
     System.out.println(input);
+    if (input == 32 || input == 39) { // space, right
+      if (renderer.dialogue.getText().equals(state.message)) {
+        renderer.dialogue.setText("");
+        scene.loadLine();
+        System.out.println("hewwo");
+      } else {
+        renderer.dialogue.setText(state.message);
+      }
+    }
   }
   
   private Scanner getParser(String input) {
@@ -44,8 +59,8 @@ public class Input {
       String param = params.next();
       int key = forceNextInt(params);
       if (param.equals("PRESSED") && !keys.contains(key)) {
-          processInput(key);
-          keys.add(key);
+        processInput(key);
+        keys.add(key);
       } else if (param.equals("RELEASED")) {
         keys.remove(key);
       }

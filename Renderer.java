@@ -6,7 +6,7 @@ import javax.swing.JTextArea;
 public class Renderer extends JFrame {
   
   private State state;
-  private JTextArea dialogue;
+  public JTextArea dialogue;
   
   public Renderer(State state) {
     this.state = state;

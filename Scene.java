@@ -14,7 +14,6 @@ public class Scene {
   public void init() {
     loadScene("intro");
     loadLine();
-    loadLine();
   }
   
   public void loadLine() {
