@@ -20,7 +20,7 @@
     - kinda boomer
     - too much typing
     - prolly should learn it anyways
-  - script with gotos
+  - script with gotos (chosen)
     - peak readability
     - not reusable
     - high debug time cost
