@@ -26,15 +26,11 @@ public class Input {
   }
   
   private void processInput(int input) {
-    System.out.println(input);
     if (input == 32 || input == 39) { // space, right
       if (renderer.dialogue.getText().equals(state.message)) {
         renderer.dialogue.setText("");
         scene.loadLine();
-        System.out.println("hewwo");
-      } else {
-        renderer.dialogue.setText(state.message);
-      }
+      } else renderer.dialogue.setText(state.message);
     }
   }
   

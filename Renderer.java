@@ -7,6 +7,7 @@ public class Renderer extends JFrame {
   
   private State state;
   public JTextArea dialogue;
+  private JTextArea name;
   
   public Renderer(State state) {
     this.state = state;
