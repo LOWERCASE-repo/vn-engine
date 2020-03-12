@@ -3,7 +3,7 @@ import java.awt.Font;
 
 public class Dialogue extends JTextArea {
   
-  private String message = "";
+  private String message;
   public boolean getReady() {
     return message.equals(getText());
   }
@@ -12,9 +12,12 @@ public class Dialogue extends JTextArea {
     super();
     Thread textScroller = new Thread(new TextScroller());
     textScroller.start();
+    message = "";
+    setText("");
   }
   
   public boolean advance(String message) {
+    System.out.println(getReady());
     if (getReady()) {
       this.message = message;
       setText("");

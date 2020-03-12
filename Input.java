@@ -14,24 +14,20 @@ public class Input {
   private HashSet<Integer> keys;
   private Renderer renderer;
   private Scene scene;
-  private State state;
   
-  public Input(Renderer renderer, Scene scene, State state) {
+  public Input(Renderer renderer, Scene scene) {
     keys = new HashSet<Integer>();
     AWTEventListener keysUpdater = new KeysUpdater();
     Toolkit.getDefaultToolkit().addAWTEventListener(keysUpdater, AWTEvent.KEY_EVENT_MASK);
     this.renderer = renderer;
     this.scene = scene;
-    this.state = state;
+    renderer.advance(scene.getMessage());
+    scene.loadLine();
   }
   
   private void processInput(int input) {
     if (input == 32 || input == 39) { // space, right
-      // if (renderer.dialogue.getText().equals(state.message)) {
-      //   renderer.dialogue.setText("");
-      //   scene.loadLine();
-      // } else renderer.dialogue.setText(state.message);
-      if (renderer.advance(state.message)) {
+      if (renderer.advance(scene.getMessage())) {
         scene.loadLine();
       }
     }
@@ -63,8 +59,6 @@ public class Input {
       } else if (param.equals("RELEASED")) {
         keys.remove(key);
       }
-      // for (int num : keys) System.out.print(num + " ");
-      // System.out.println();
     }
   }
 }
