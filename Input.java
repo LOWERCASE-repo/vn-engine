@@ -27,10 +27,13 @@ public class Input {
   
   private void processInput(int input) {
     if (input == 32 || input == 39) { // space, right
-      if (renderer.dialogue.getText().equals(state.message)) {
-        renderer.dialogue.setText("");
+      // if (renderer.dialogue.getText().equals(state.message)) {
+      //   renderer.dialogue.setText("");
+      //   scene.loadLine();
+      // } else renderer.dialogue.setText(state.message);
+      if (renderer.advance(state.message)) {
         scene.loadLine();
-      } else renderer.dialogue.setText(state.message);
+      }
     }
   }
   
