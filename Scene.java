@@ -24,6 +24,8 @@ public class Scene {
     mood = parseString(58); // colon
     message = parseString(10); // newline
     System.out.println(speaker + "|" + mood + "|" + message);
+    
+    // TODO try moving renderer updates here
   }
   
   private void loadScene(String name) {
